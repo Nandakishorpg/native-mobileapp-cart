@@ -1,22 +1,35 @@
-import { createAppContainer } from "react-navigation";
-import { createStackNavigator } from "react-navigation-stack";
-import HomeScreen from "./src/screens/HomeScreen";
-import Profile from './src/screens/Profile'
+import React from 'react';
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
+import HomeScreen from './src/screens/HomeScreen';
+import Profile from './src/screens/Profile';
+import CartItemsContext from './src/contexts/cartItemsContext';
+
+
 
 const navigator = createStackNavigator(
   {
     Home: HomeScreen,
-    Profile:Profile
+    Profile: Profile,
   },
   {
-    initialRouteName: "Home",
+    initialRouteName: 'Home',
     defaultNavigationOptions: {
-      title: "Apps",
+      title: 'Product page',
       headerStyle: {
-        height: 60, // set the height to 50
+        height: 80,
       },
     },
   }
 );
 
-export default createAppContainer(navigator);
+const AppContainer = createAppContainer(navigator);
+
+export default function App() {
+  return (
+    <CartItemsContext>
+      <AppContainer />
+    </CartItemsContext>
+  );
+}
+
