@@ -3,7 +3,8 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import HomeScreen from './src/screens/HomeScreen';
 import Profile from './src/screens/Profile';
-import CartItemsContext from './src/contexts/cartItemsContext';
+import CartItemContext from './src/contexts/CartItemContext';
+
 
 
 
@@ -27,9 +28,9 @@ const AppContainer = createAppContainer(navigator);
 
 export default function App() {
   return (
-    <CartItemsContext>
+    <CartItemContext>
       <AppContainer />
-    </CartItemsContext>
+    </CartItemContext>
   );
 }
 

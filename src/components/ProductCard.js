@@ -3,26 +3,29 @@ import axios from "axios";
 import { View, Text, Image } from "react-native";
 
 import { Button } from "react-native-paper";
-import { MyContext } from "../contexts/cartItemsContext";
+import { MyContext } from "../contexts/CartItemContext";
 
 export default function ProductCard({ mappingArray }) {
   const { cartData, setCartData } = useContext(MyContext);
- 
 
-  const handleClick = (index,value) => {
-    // const cartItem={
-    //     id:value.id,
-    //     image:value.image,
-    //     title:value.title,
-    //     price:value.price
-    // }
-    // setCartData(cartItem)
+  const handleClick = (index, value) => {
+    const cartItem = {
+      id: value.id,
+      image: value.image,
+      title: value.title,
+      price: value.price,
+    };
+
+    const idExists = cartData.some((item) => item.id === value.id);
+    if (!idExists) {
+      setCartData([...cartData, cartItem]);
+    }
   };
   console.log(cartData);
   return (
     <View className="flex flex-row  flex-wrap justify-evenly">
       {mappingArray &&
-        mappingArray.map((value, index) => (
+        mappingArray?.map((value, index) => (
           <View
             key={index}
             className="bg-stone-100 p-4 w-44  justify-center items-center content-center  flex flex-col rounded-lg shadow-lg mb-10 border"
@@ -42,7 +45,7 @@ export default function ProductCard({ mappingArray }) {
               <Button
                 className="bg-green-300 h-10   border-gray-900 w-5/5 text-white shadow-lg rounded-lg p-1 w-70"
                 onPress={() => {
-                  handleClick(index,value);
+                  handleClick(index, value);
                 }}
                 mode="elevated"
               >

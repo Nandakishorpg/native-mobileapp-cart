@@ -15,23 +15,29 @@ const HomeScreen = ({ navigation }) => {
   const [api, setApi] = useState();
 
   useEffect(() => {
-    axios.get("https://fakestoreapi.com/products").then((res) => {
-      setApi(res.data);
-    });
+    const apiCall = async () => {
+      try {
+        const response = await axios.get("https://fakestoreapi.com/products");
+        setApi(response.data);
+      } catch (error) {
+        console.log("catch Error>>>",error);
+      }
+    };
+    apiCall();
   }, []);
+  console.log(api)
 
   return (
     <>
       <ScrollView>
-        <View className="p-1 bg-white">
+        <View className="p-1  bg-white">
+          <Button className="bg-stone-300 mb-4" onPress={() => navigation.navigate("Profile")}>
+           To Cart
+           <Text className="text-2xl"></Text>
+          </Button>
 
-        <Button class onPress={() => navigation.navigate("Profile")}>
-          Cart
-        </Button>
-
-        <ProductCard mappingArray={api} />
+          <ProductCard mappingArray={api} />
         </View>
-      
       </ScrollView>
     </>
   );
