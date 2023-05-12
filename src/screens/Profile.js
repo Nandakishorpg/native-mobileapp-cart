@@ -74,7 +74,7 @@ const Profile = () => {
                     mode="elevated"
                     className="mt-10 bg-stone-200"
                   >
-                    Apply Promo Code
+                    Apply Promo Codes
                   </Button>
                 </View>
               </View>
