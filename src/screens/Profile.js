@@ -41,41 +41,51 @@ const Profile = () => {
   };
 
   return (
-    <View>
+    <View className="h-full border border-red-500">
       <ScrollView>
-        <View className="bg-stone-200 rounded-lg justify-center items-center p-2 mb-7">
-          <Text className="text-2xl text-green-600">My Cart</Text>
-        </View>
-        {cartData && cartData.length > 0 ? (
-          <CartCard Array={cartData} />
-        ) : (
-          <View className="bg-stone-200 rounded-lg justify-center items-center p-4">
-            {/* <Text className="text-2xl text-red-600">Its Empty here!!!!!!</Text> */}
-            <Image
-              source={{
-                uri: "https://cdn.dribbble.com/users/2370289/screenshots/6150406/media/6579b4e1f9a6658157cf653538b25a8b.jpg?compress=1&resize=400x300",
-              }}
-              className="w-full rounded-lg h-80 drop-shadow-lg"
-            />
+        <View className="flex justify-between">
+          <View className="bg-stone-200 rounded-lg items-center p-2 mb-7 ">
+            <Text className="text-2xl text-green-600">My Cart</Text>
           </View>
-        )}
-        {cartData && cartData.length > 0 && (
-          <View className="justify-center items-center sticky">
-            <Button mode="elevated" onPress={() => {}}>
-              Checkout
-            </Button>
-            <Text>Toal Amount - {total} $</Text>
-            <View>
-              <TextInput
-                onChangeText={handleChange}
-                className="w-40 rounded-lg"
-              ></TextInput>
-              <Button onPress={handlePromo} mode="elevated">
-                Apply Promo Code
-              </Button>
+          {cartData && cartData.length > 0 ? (
+            <CartCard Array={cartData} />
+          ) : (
+            <View className="bg-stone-200 rounded-lg items-center p-4">
+              {/* <Text className="text-2xl text-red-600">Its Empty here!!!!!!</Text> */}
+              <Image
+                source={{
+                  uri: "https://cdn.dribbble.com/users/2370289/screenshots/6150406/media/6579b4e1f9a6658157cf653538b25a8b.jpg?compress=1&resize=400x300",
+                }}
+                className="w-full rounded-lg h-80 drop-shadow-lg"
+              />
             </View>
-          </View>
-        )}
+          )}
+          {cartData && cartData.length > 0 && (
+            <View className="items-center h-1/2 border flex align-middle justify-center border-red-500">
+              <Text className="border">Toal Amount - {total} $</Text>
+              <View className="p-2">
+                <TextInput
+                  onChangeText={handleChange}
+                  className="w-40 h-10 rounded-lg border"
+                ></TextInput>
+                <View className="border border-yellow-600">
+                  <Button
+                    onPress={handlePromo}
+                    mode="elevated"
+                    className="mt-10 bg-stone-200"
+                  >
+                    Apply Promo Code
+                  </Button>
+                </View>
+              </View>
+              <View className="border border-blue-400">
+                <Button mode="elevated" onPress={() => {}}>
+                  Checkout
+                </Button>
+              </View>
+            </View>
+          )}
+        </View>
       </ScrollView>
     </View>
   );
