@@ -2,7 +2,7 @@ import React from 'react';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import HomeScreen from './src/screens/HomeScreen';
-import Profile from './src/screens/Profile';
+import Cart from './src/screens/Cart';
 import CartItemContext from './src/contexts/CartItemContext';
 
 
@@ -11,7 +11,7 @@ import CartItemContext from './src/contexts/CartItemContext';
 const navigator = createStackNavigator(
   {
     Home: HomeScreen,
-    Profile: Profile,
+    Cart: Cart,
   },
   {
     initialRouteName: 'Home',

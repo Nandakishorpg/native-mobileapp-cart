@@ -28,19 +28,21 @@ export default function ProductCard({ mappingArray }) {
         mappingArray?.map((value, index) => (
           <View
             key={index}
-            className="bg-stone-100 p-4 w-44  justify-center items-center content-center  flex flex-col rounded-lg shadow-lg mb-10 border"
+            className="bg-stone-100 p-3 w-full  justify-center items-center content-center  flex flex-row gap-5 rounded-lg shadow-lg mb-10  border"
           >
-            <Image
-              className="h-28 w-32 mb-6 rounded-lg shadow-lg"
-              source={{ uri: value?.image }}
-            />
+            <View className="h-full w-28 shadow-lg">
+              <Image
+                className="rounded-lg shadow-lg w-full h-32 border"
+                source={{ uri: value?.image }}
+              />
+            </View>
 
-            <View className="flex flex-col justify-between  gap-3 text-left">
+            <View className="flex flex-col justify-between w-1/2  gap-3 text-left">
               <Text style={{ color: "blue", textAlign: "left" }}>
                 {" "}
                 {value?.title}
               </Text>
-              <Text style={{ color: "green" }}> {value?.price}$</Text>
+              <Text style={{ color: "black" }}> {value?.price}$</Text>
 
               <Button
                 className="bg-green-300 h-10   border-gray-900 w-5/5 text-white shadow-lg rounded-lg p-1 w-70"

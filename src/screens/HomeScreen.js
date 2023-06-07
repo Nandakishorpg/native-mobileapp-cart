@@ -30,11 +30,11 @@ const HomeScreen = ({ navigation }) => {
   return (
     <>
       <ScrollView>
-        <View className="p-1  bg-white">
-          <Button className="bg-stone-300 mb-4" onPress={() => navigation.navigate("Profile")}>
+        <View className="p-6  bg-white">
+          {/* <Button className="bg-stone-300 mb-4" onPress={() => navigation.navigate("Cart")}>
            To Cart
            <Text className="text-2xl"></Text>
-          </Button>
+          </Button> */}
 
           <ProductCard mappingArray={api} />
         </View>

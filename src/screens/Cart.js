@@ -4,7 +4,7 @@ import CartCard from "../components/CartCard";
 import { MyContext } from "../contexts/CartItemContext";
 import { Button, TextInput } from "react-native-paper";
 
-const Profile = () => {
+const Cart = () => {
   const { cartData, setCartData } = useContext(MyContext);
   const [total, settotal] = useState(0);
   const [inputValue, setInputValue] = useState("");
@@ -91,4 +91,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default Cart;
